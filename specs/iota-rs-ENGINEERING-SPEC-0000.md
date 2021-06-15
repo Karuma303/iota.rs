@@ -26,7 +26,7 @@
   * [`promote`](#promote)
 * [Full node API](#Full-node-API)
   * [`get_health`](#get_health)
-  * [`get_health`](#get_peers)
+  * [`get_peers`](#get_peers)
   * [`get_info`](#get_info)
   * [`get_tips`](#get_tips)
   * [`post_message`](#post_message)

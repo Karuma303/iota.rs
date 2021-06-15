@@ -1,5 +1,12 @@
 # Welcome
-This is the documentation for the official IOTA Client Library. It can be used to easily interact with IOTA network (Tangle) via [IOTA node software](https://chrysalis.docs.iota.org/node-software/node-software.html). Official IOTA libraries serve as `one-source-code-of-truth` to IOTA users and providing binding to other programming languages. You can read more about core principles behind IOTA client libraries in the following blog [post](https://blog.iota.org/the-new-iota-client-libraries-harder-better-faster-stronger/).
+This is the documentation for the official IOTA Client Library. 
+It can be used to easily interact with IOTA network (Tangle) via 
+[IOTA node software](https://chrysalis.docs.iota.org/node-software/node-software.html). 
+Official IOTA libraries serve as `one-source-code-of-truth` to IOTA users 
+and provide bindings to other programming languages. You can read more about 
+core principles behind IOTA client libraries in the following blog 
+[post](https://blog.iota.org/the-new-iota-client-libraries-harder-better-faster-stronger/).
+This is the documentation for the official IOTA Client Library. It can be used to easily interact with IOTA network (Tangle) via [IOTA node software](https://chrysalis.docs.iota.org/node-software/node-software.html). Official IOTA libraries serve as `one-source-code-of-truth` to IOTA users and provide bindings to other programming languages. You can read more about core principles behind IOTA client libraries in the following blog [post](https://blog.iota.org/the-new-iota-client-libraries-harder-better-faster-stronger/).
 
 Example of tasks that `iota.rs` is able to help with:
 - Create messages and transactions
@@ -7,13 +14,23 @@ Example of tasks that `iota.rs` is able to help with:
 - Generate addresses
 - Interact with an IOTA node
 
-> Please note: there is also available `wallet.rs` library that contains all the logic to safely build wallets or integrations that require value-based IOTA transfers. We strongly recommend to leverage [wallet.rs library](https://wallet-lib.docs.iota.org/) in case one is more focused on IOTA value-based transfers since it integrates the best security practices including our [stronghold enclave](https://blog.iota.org/iota-stronghold-6ce55d311d7c/).
+> Please note: there is also available `wallet.rs` library that contains all 
+> the logic to safely build wallets or integrations that require value-based 
+> IOTA transfers. We strongly recommend to leverage 
+> [wallet.rs library](https://wallet-lib.docs.iota.org/) in case one is more 
+> focused on IOTA value-based transfers since it integrates the best security 
+> practices including our 
+> [stronghold enclave](https://blog.iota.org/iota-stronghold-6ce55d311d7c/).
 
 ## Changes from IOTA 1.0 to 1.5
-For an overview of all significant changes in the protocol, please see [Chrysalis documentation](https://chrysalis.docs.iota.org/guides/index.html).
+For an overview of all significant changes in the protocol, please see 
+[Chrysalis documentation](https://chrysalis.docs.iota.org/guides/index.html).
 
 ## Testnet
-To join the Chrysalis public testnet checkout [this link](https://blog.iota.org/chrysalis-phase-2-testnet-out-now/). More information about Chrysalis components is available at [documentation portal](https://chrysalis.docs.iota.org/).
+To join the Chrysalis public testnet checkout 
+[this link](https://blog.iota.org/chrysalis-phase-2-testnet-out-now/). 
+More information about Chrysalis components is available at 
+[documentation portal](https://chrysalis.docs.iota.org/).
 
 
 ## Joining the discussion

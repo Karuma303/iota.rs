@@ -2,15 +2,19 @@
 
 ## Requirements
 
-To use the library, we recommend you update Rust to latest stable version [`$ rustup update stable`](https://github.com/rust-lang/rustup.rs#keeping-rust-up-to-date). Nightly should be fine but some changes might not be compatible.
+To use the library, we recommend you update Rust to the latest stable version 
+[`$ rustup update stable`](https://github.com/rust-lang/rustup.rs#keeping-rust-up-to-date). 
+Nightly should be fine but some changes might not be compatible.
 
-`no_std` is not currently supported, but we are working on it in [bee](https://github.com/iotaledger/bee), and will provide it as feature once the new implementation is ready.
+`no_std` is not currently supported, but we are working on it in 
+[bee](https://github.com/iotaledger/bee), and will provide it as a feature 
+once the new implementation is ready.
 
 ## Using the library
 
 Using the library is easy, just add it as dependency in your `Cargo.toml`:
 
-```bash
+```toml
 [dependencies]
 iota-client = { git = "https://github.com/iotaledger/iota.rs", branch = "dev" }
 ```
