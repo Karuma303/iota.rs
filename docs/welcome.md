@@ -6,7 +6,13 @@ Official IOTA libraries serve as `one-source-code-of-truth` to IOTA users
 and provide bindings to other programming languages. You can read more about 
 core principles behind IOTA client libraries in the following blog 
 [post](https://blog.iota.org/the-new-iota-client-libraries-harder-better-faster-stronger/).
-This is the documentation for the official IOTA Client Library. It can be used to easily interact with IOTA network (Tangle) via [IOTA node software](https://chrysalis.docs.iota.org/node-software/node-software.html). Official IOTA libraries serve as `one-source-code-of-truth` to IOTA users and provide bindings to other programming languages. You can read more about core principles behind IOTA client libraries in the following blog [post](https://blog.iota.org/the-new-iota-client-libraries-harder-better-faster-stronger/).
+This is the documentation for the official IOTA Client Library. It can be used 
+to easily interact with IOTA network (Tangle) via 
+[IOTA node software](https://chrysalis.docs.iota.org/node-software/node-software.html). 
+Official IOTA libraries serve as `one-source-code-of-truth` to IOTA users 
+and provide bindings to other programming languages. You can read more about 
+core principles behind IOTA client libraries in the following blog 
+[post](https://blog.iota.org/the-new-iota-client-libraries-harder-better-faster-stronger/).
 
 Example of tasks that `iota.rs` is able to help with:
 - Create messages and transactions
@@ -34,13 +40,15 @@ More information about Chrysalis components is available at
 
 
 ## Joining the discussion
-If you want to get involved in discussions about this library, or you're looking for support, go to the #clients-discussion channel on [Discord](https://discord.iota.org).
+If you want to get involved in discussions about this library, or you're looking 
+for support, go to the #clients-discussion channel on 
+[Discord](https://discord.iota.org).
 
 ## What you will find here
 This documentation has five paths. 
 
-1. The Overview, an detailed overview of the client library. 
-2. Libraries bindings, all avaiable programming languages and their resources.
-3. The Specification, detailed explaination requirements and functionality.
+1. The Overview, a detailed overview of the client library. 
+2. Libraries bindings, all available programming languages and their resources.
+3. The Specification, detailed explanation requirements and functionality.
 4. Contribute, how you can work on the client software.
 5. Get in touch, join the community and become part of the X-Team!
