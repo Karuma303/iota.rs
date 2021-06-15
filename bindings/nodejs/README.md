@@ -20,11 +20,14 @@ $ yarn add @iota/client
 
 One of the following Node.js version: '10.x', '12.x', '14.x', '15.x', '16.x'
 
-If there is no prebuilt binary available for your system you need `Rust` and `Cargo`, to build it yourself. Install them [here](https://doc.rust-lang.org/cargo/getting-started/installation.html).
+If there is no prebuilt binary available for your system you need `Rust` 
+and `Cargo` to build it yourself. Install them 
+[here](https://doc.rust-lang.org/cargo/getting-started/installation.html).
 
 ## Getting Started
 
-After you linked the library, you can create a `Client` instance and interface with it.
+After you linked the library, you can create a `Client` instance and 
+interface with it.
 
 ```javascript
 const { ClientBuilder } = require('@iota/client')
@@ -34,7 +37,8 @@ const client = new ClientBuilder()
 client.getInfo().then(console.log).catch(console.error)
 ```
 
-Connecting to a MQTT broker using raw ip doesn't work with TCP. This is a limitation of rustls.
+Connecting to a MQTT broker using raw ip doesn't work with TCP. 
+This is a limitation of [rustls](https://docs.rs/rustls).
 
 ## API Reference
 
@@ -147,7 +151,8 @@ Defines how many of nodes will be queried at the same time to check for quorum.
 
 #### quorumThreshold(threshold): ClientBuilder
 
-Defines the minimum amount of nodes from the quorum pool that need to agree if we want to consider the result true.
+Defines the minimum amount of nodes from the quorum pool that need to agree 
+if we want to consider the result true.
 
 | Param     | Type                | Description             |
 | --------- | ------------------- | ----------------------- |
@@ -177,7 +182,8 @@ Sets the node syncing interval.
 
 #### disableNodeSync(): ClientBuilder
 
-Disables the node syncing process. Every node will be considered healthy and ready to use.
+Disables the node syncing process. Every node will be considered healthy 
+and ready to use.
 
 **Returns** the client builder instance for chained calls.
 
@@ -358,7 +364,8 @@ Retries (promotes or reattaches) the message associated with the given id.
 
 #### retryUntilIncluded(messageId: string[, interval: int, maxAttempts: int]): Promise<Message>
 
-Retries (promotes or reattaches) the message associated with the given id until it's included in the Tangle.
+Retries (promotes or reattaches) the message associated with the given id until 
+it's included in the Tangle.
 Default interval is 5 seconds and max_attempts is 10.
 
 | Param                 | Type                | Description                                            |
@@ -371,7 +378,8 @@ Default interval is 5 seconds and max_attempts is 10.
 
 #### consolidateFunds(seed: string, accountIndex: int, startIndex: int, endIndex: int): Promise<string>
 
-Function to consolidate all funds from a range of addresses to the address with the lowest index in that range
+Function to consolidate all funds from a range of addresses to the address with 
+the lowest index in that range
 
 | Param        | Type                | Description                                                           |
 | ------------ | ------------------- | --------------------------------------------------------------------- |
@@ -380,7 +388,8 @@ Function to consolidate all funds from a range of addresses to the address with 
 | startIndex   | <code>int</code>    | The lowest address index, funds will be consolidated to this address. |
 | endIndex     | <code>int</code>    | The address index until which funds will be consolidated              |
 
-**Returns** the address to which the funds got consolidated, if any were available.
+**Returns** the address to which the funds got consolidated, if any were 
+available.
 
 #### getInfo(): Promise<NodeInfoWrapper>
 
@@ -392,7 +401,8 @@ Gets information about the node.
 
 Gets two non-lazy tips.
 
-**Returns** a promise resolving to an array of length 2 containing the message ids of the tips.
+**Returns** a promise resolving to an array of length 2 containing the message 
+ids of the tips.
 
 #### postMessage(message): Promise<string>
 
@@ -408,7 +418,8 @@ Submits a message.
 
 Gets a message from its identifier.
 
-**Returns** an instance of the [MessageFinder](#messagefinder) for choices of response.
+**Returns** an instance of the [MessageFinder](#messagefinder) for choices of 
+response.
 
 #### getOutput(outputId): Promise<OutputMetadata>
 
