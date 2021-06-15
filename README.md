@@ -1,11 +1,14 @@
 # iota.rs
 
+[![LICENSE](https://img.shields.io/github/license/iotaledger/iota.rs)](LICENSE)
+
+
 **Official IOTA Client library**
 
 The goal of this library is to have a `single source of truth` for basic 
 (stateless) client functionality, which means there is one reference 
-implementation in [Rust](https://www.rust-lang.org/) 
-and several [bindings](#bindings) to other programming languages.
+implementation in [Rust] and several [bindings](#bindings) to other 
+programming languages.
 
 This library allows you to do the following:
 
@@ -16,22 +19,21 @@ This library allows you to do the following:
 * Interact with an IOTA node
 
 For building higher-level applications that handle for example IOTA 
-value transactions in a stateful way, we recommend using our official wallet 
-library [wallet.rs](https://github.com/iotaledger/wallet.rs).
+value transactions in a stateful way, we recommend using our official 
+[wallet library].
 
-We also provide a client library written in C that you can find 
-[here](https://github.com/iotaledger/iota.c) and one written in Go
-that you can find [here](https://github.com/iotaledger/iota.go).
+We also provide a client library written in C 
+that you can find [here][C client library] 
+and one written in Go that you can find [here][Go client library].
 
 ## Requirements
 
 To use the library, we recommend you update Rust to latest stable version 
-[`$ rustup update stable`](https://github.com/rust-lang/rustup.rs#keeping-rust-up-to-date). 
+[`$ rustup update stable`][Rust update]. 
 Nightly should be fine but some changes might not be compatible.
 
 `no_std` is currently not supported, but we are working on it in 
-[Bee](https://github.com/iotaledger/bee) and will provide it as feature once 
-the new implementation is ready.
+[Bee] and will provide it as a feature once the new implementation is ready.
 
 ## Using the library
 
@@ -54,14 +56,12 @@ You can use the library then in your code with
 use iota_client;
 ```
 
-*Note: When using the "MQTT" feature, connecting to a MQTT broker using raw ip 
-doesn't work with TCP. This is a limitation of  [rustls](https://docs.rs/rustls).*
+*Note: When using the "MQTT" feature, connecting to an [MQTT] broker using 
+raw ip doesn't work with TCP. This is a limitation of [rustls].*
 
 ## API documentation
 
-You can find the API documentation
-[here](https://client-lib.docs.iota.org/docs/doc/iota_client/index.html), 
-or generate it yourself.
+You can find the API documentation [here][API] or you can generate it yourself.
 
 If you'd like to explore the implementation in more depth, the following 
 command generates docs for the whole crate, including private modules:
@@ -86,16 +86,32 @@ to `.env`.
 
 We currently provide bindings to these programming languages:
 
-* [Node.js binding](bindings/nodejs/.)
-* [Python binding](bindings/python/.)
+* [Node.js bindings]
+* [Java bindings]
+* [Python bindings]
 
 ## Joining the discussion
 
 If you want to get involved in the community, need help with setting up, have 
 any issues or just want to discuss IOTA with other people, feel free to join 
-our [Discord](https://discord.iota.org/) in the #clients-dev 
-and #clients-discussion channels.
+our official [Discord] in the `#clients-dev` and `#clients-discussion` channels.
 
 ## License
 
-The Apache 2.0 license can be found [here](LICENSE).
+All the code in this repository is released under the ***Apache 2.0 License***, 
+for more information take a look at the [LICENSE] file.
+
+[Node.js bindings]: ./bindings/nodejs/README.md
+[Java bindings]: ./bindings/java/README.md
+[Python bindings]: ./bindings/python/README.md
+[C client library]: https://github.com/iotaledger/iota.c
+[Go client library]: https://github.com/iotaledger/iota.go
+[API]: https://client-lib.docs.iota.org/docs/doc/iota_client/index.html
+[Rust update]: https://github.com/rust-lang/rustup.rs#keeping-rust-up-to-date
+[Bee]: https://github.com/iotaledger/bee
+[Wallet library]: https://github.com/iotaledger/wallet.rs
+[Discord]: https://discord.iota.org/
+[Rust]: https://www.rust-lang.org/
+[rustls]: https://docs.rs/rustls/
+[MQTT]: https://mqtt.org/
+[LICENSE]: LICENSE
