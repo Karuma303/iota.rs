@@ -63,9 +63,9 @@ use iota_client;
 *Note: When using the "MQTT" feature, connecting to an [MQTT] broker using 
 raw ip doesn't work with TCP. This is a limitation of [rustls].*
 
-## API documentation
+## API Reference
 
-You can find the API documentation [here][API] or you can generate it yourself.
+You can find the API reference [here][API] or you can generate it yourself.
 
 If you'd like to explore the implementation in more depth, the following 
 command generates docs for the whole crate, including private modules:
