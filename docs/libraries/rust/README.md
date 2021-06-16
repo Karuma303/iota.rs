@@ -13,4 +13,4 @@ for support, go to the #clients-discussion channel on
 - [Getting Started with iota.rs](getting_started.md)
 - [Examples](examples.md)
 - [API Reference](api_reference.md)
-- [Troubleshooting](troubleshooting.md)
+- [Troubleshooting](../../troubleshooting.md)

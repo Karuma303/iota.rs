@@ -14,4 +14,4 @@ For an overview of all significant changes in the protocol, please see [Chrysali
 - [Getting Started](getting_started.md)
 - [Examples](examples.md)
 - [API Reference](api_reference.md)
-- [Troubleshooting](troubleshooting.md)
+- [Troubleshooting](../../troubleshooting.md)
