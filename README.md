@@ -1,11 +1,13 @@
-#Official IOTA Client library - iota.rs
+# iota.rs
 
-[![LICENSE](https://img.shields.io/github/license/iotaledger/iota.rs)][LICENSE]
 [![status](https://img.shields.io/badge/Status-Alpha-yellow.svg)](https://github.com/iotaledger/iota.rs)
-
+[![LICENSE](https://img.shields.io/github/license/iotaledger/iota.rs)][LICENSE]
 [![IOTA StackExchange](https://img.shields.io/badge/questions%20%26%20answers-grey?style=flat&logo=StackExchange)][IOTA StackExchange]
+
 [![IOTA Discord](https://img.shields.io/discord/397872799483428865?label=Chat&logo=iota&style=social)][IOTA Discord]
 [![Twitter Follow](https://img.shields.io/twitter/follow/iota?label=Follow&style=social)][IOTA Twitter]
+
+# The official IOTA Client library 
 
 The goal of this library is to have a `single source of truth` for basic 
 (stateless) client functionality, which means there is one reference 
