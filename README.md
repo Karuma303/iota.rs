@@ -1,6 +1,7 @@
 # iota.rs
 
 [![LICENSE](https://img.shields.io/github/license/iotaledger/iota.rs)](LICENSE)
+[![IOTA Discord](https://img.shields.io/discord/397872799483428865?label=Chat&logo=iota&style=social "IOTA Discord")](IOTA Discord)
 
 
 **Official IOTA Client library**
@@ -94,7 +95,7 @@ We currently provide bindings to these programming languages:
 
 If you want to get involved in the community, need help with setting up, have 
 any issues or just want to discuss IOTA with other people, feel free to join 
-our official [Discord] in the `#clients-dev` and `#clients-discussion` channels.
+our [IOTA Discord] in the `#clients-dev` and `#clients-discussion` channels.
 
 ## License
 
@@ -110,7 +111,7 @@ for more information take a look at the [LICENSE] file.
 [Rust update]: https://github.com/rust-lang/rustup.rs#keeping-rust-up-to-date
 [Bee]: https://github.com/iotaledger/bee
 [Wallet library]: https://github.com/iotaledger/wallet.rs
-[Discord]: https://discord.iota.org/
+[IOTA Discord]: https://discord.iota.org/
 [Rust]: https://www.rust-lang.org/
 [rustls]: https://docs.rs/rustls/
 [MQTT]: https://mqtt.org/
