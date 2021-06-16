@@ -1,10 +1,11 @@
-# iota.rs
+#Official IOTA Client library - iota.rs
 
-[![LICENSE](https://img.shields.io/github/license/iotaledger/iota.rs)](LICENSE)
+[![LICENSE](https://img.shields.io/github/license/iotaledger/iota.rs)][LICENSE]
+[![status](https://img.shields.io/badge/Status-Alpha-yellow.svg)](https://github.com/iotaledger/iota.rs)
+
+[![IOTA StackExchange](https://img.shields.io/badge/questions%20%26%20answers-grey?style=flat&logo=StackExchange)][IOTA StackExchange]
 [![IOTA Discord](https://img.shields.io/discord/397872799483428865?label=Chat&logo=iota&style=social)][IOTA Discord]
 [![Twitter Follow](https://img.shields.io/twitter/follow/iota?label=Follow&style=social)][IOTA Twitter]
-
-**Official IOTA Client library**
 
 The goal of this library is to have a `single source of truth` for basic 
 (stateless) client functionality, which means there is one reference 
@@ -111,6 +112,7 @@ for more information take a look at the [LICENSE] file.
 [Rust update]: https://github.com/rust-lang/rustup.rs#keeping-rust-up-to-date
 [Bee]: https://github.com/iotaledger/bee
 [Wallet library]: https://github.com/iotaledger/wallet.rs
+[IOTA StackExchange]: https://iota.stackexchange.com/
 [IOTA Discord]: https://discord.iota.org/
 [IOTA Twitter]: https://twitter.com/iota
 [Rust]: https://www.rust-lang.org/
