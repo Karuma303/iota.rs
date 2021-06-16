@@ -1,7 +1,8 @@
 # iota.rs
 
 [![LICENSE](https://img.shields.io/github/license/iotaledger/iota.rs)](LICENSE)
-[![IOTA Discord](https://img.shields.io/discord/397872799483428865?label=Chat&logo=iota&style=social)](IOTA Discord)
+[![IOTA Discord](https://img.shields.io/discord/397872799483428865?label=Chat&logo=iota&style=social)][IOTA Discord]
+[![Twitter Follow](https://img.shields.io/twitter/follow/iota?label=Follow&style=social)][IOTA Twitter]
 
 **Official IOTA Client library**
 
@@ -111,6 +112,7 @@ for more information take a look at the [LICENSE] file.
 [Bee]: https://github.com/iotaledger/bee
 [Wallet library]: https://github.com/iotaledger/wallet.rs
 [IOTA Discord]: https://discord.iota.org/
+[IOTA Twitter]: https://twitter.com/iota
 [Rust]: https://www.rust-lang.org/
 [rustls]: https://docs.rs/rustls/
 [MQTT]: https://mqtt.org/
