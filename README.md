@@ -1,8 +1,7 @@
 # iota.rs
 
 [![LICENSE](https://img.shields.io/github/license/iotaledger/iota.rs)](LICENSE)
-[![IOTA Discord](https://img.shields.io/discord/397872799483428865?label=Chat&logo=iota&style=social "IOTA Discord")](IOTA Discord)
-
+![sdf kjs df](https://img.shields.io/discord/397872799483428865?label=Chat&logo=iota&style=social)
 
 **Official IOTA Client library**
 
