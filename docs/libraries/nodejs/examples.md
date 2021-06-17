@@ -1,12 +1,6 @@
 # Examples
 
-> Please note: It is not recommended to store passwords/seeds on host's 
-> environment variables or in the source code in a production setup! 
-> Please make sure you follow our 
-> [backup and security](https://chrysalis.docs.iota.org/guides/backup_security.html) 
-> recommendations for production use!
-
-## Connecting to node(s)
+## Connect to a node
 
 All features of `iota.rs` library are accessible via an instance of the `Client` 
 class that provides high-level abstraction to all interactions over 
@@ -155,70 +149,9 @@ eff5c97c96ddab55d6fe78f914508750152eaab1b9692236bc79268895ecfd168e91eedd2489ed6c
 
 ### Address/key space
 
-Before an actual address generation process, let's quickly focus on 
-[BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) 
-standard that describes an approach to _Hierarchical Deterministic Wallets_. 
-The standard was improved by 
-[BIP44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki) lately.
-
-These standards define a tree structure as a base for address and key space 
-generation which is represented by a `derivation path`:
-
-```plaintext
-m / purpose / coin_type / account / change / address_index
-```
-
-* `m`: a master node (seed)
-* `purpose`: constant which is {44}
-* `coin_type`: a constant set for each crypto currency. IOTA = 4218, 
-for instance.
-* `account`: account index. Zero-based increasing `int`. This level splits the 
-address/key space into independent branches (ex. user identities) which each has
-own set of addresses/keys
-* `change`: change index which is `{0, 1}`, also known as `wallet chain`.<br />
-There are two independent chain of addresses/keys. `0` is reserved for public 
-addresses (for coin receival) and `1` is reserved for internal (also known as 
-change) addresses to which transaction change is returned. _IOTA is totally fine 
-with address reuse, and so it is, technically speaking, totally valid to return 
-transaction change to the same originating address. So it is up to developers 
-whether to leverage it or not. `iota.rs` library and its sibling `wallet.rs` 
-help with either scenario_
-* `address_index`: address index. Zero-based increasing `int` that indicates an 
-address index
-
-As outlined, there is a quite large address/key space that is secured by a 
-single unique seed.
-
-And there are few additional interesting notes:
-* Each level defines a completely different subtree (subspace) of addresses/keys 
-and those are never mixed up
-* The hierarchy is ready to "absorb" addresses/keys for many different coins at 
-the same time (`coin_type`), and all those coins are secured by the same seed.<br />
-(So basically any BIP32/44-compliant wallet is potentially able to manage any 
-BIP32/44-compliant coin(s))
-* There may be also other `purposes` in the future however let's consider a 
-single purpose as of now. The constant `44` stands for BIP44
-* The standard was agreed upon different crypto communities, although not all 
-`derivation path` components are always in active use. For example, `account` is
-not always actively leveraged across crypto space (if this is a case then there 
-is usually `account=0` used)
-* Using different `accounts` may be useful to split addresses/key into some 
-independent spaces and it is up to developers to implement.<br />
-_Please note, it may have a negative impact on a performance while 
-[account discovery](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#account-discovery) 
-phase. So if you are after using many multiple accounts then you may be 
-interested in our stateful library 
-[wallet.rs](https://chrysalis.docs.iota.org/libraries/wallet.html) that 
-incorporates all business logic needed to efficiently manage independent 
-accounts. Also our 
-[exchange guide](https://chrysalis.docs.iota.org/guides/exchange_guide.html) 
-provides some useful tips how different accounts may be leveraged_
-
-![address_generation](address_generation.svg)
-
-So in case of IOTA, the derivation path of address/key space is `[seed]/44/4218/{int}/{0,1}/{int}`. 
-The levels `purpose` and `coin_type` are given, the rest levels are up to 
-developers to integrate.
+Before an actual address generation process, make sure that you read
+the chapter about
+[addresses in the IOTA protocol](../../protocol/addresses.md).
 
 ### Generating address(es)
 
@@ -316,92 +249,8 @@ result and searching does not continue.
 
 ## Messages, payload and transactions
 
-Before we continue, let's introduce some additional terms that describe an unit 
-that is actually broadcasted in IOTA network. IOTA is based on a concept of 
-`messages` and `payloads`.
-
-`Message` is a data structure that is actually being broadcasted in IOTA network 
-and represent a node (vertex) in the Tangle graph. It can refer to up to 8 
-previous messages and once a message was attached to the Tangle and approved by 
-a milestone, the Tangle structure ensures the content of the message is 
-unaltered. Every message is referenced by `message_id` which is based on a hash 
-algorithm of binary content of the message. `Message` is an atomic unit that is 
-confirmed by network as a whole.
-
-> IOTA is no longer based on ternary. IOTA 1.5 (Chrysalis) uses binary to encode
-and broadcast all underlying data entities
-
-`Message` is broadcasted using a binary format, is arbitrary size (up to 35 kB) 
-and it can hold a variable sets of information so called `payloads`. Number of 
-payloads a single message can encapsulate is not given (even a message without 
-any `payload` at all is completely valid).
-
-`Payload` represents a layer of concern. Some payloads may change a state of the 
-ledger (ex. `transactions`) and some may provide extra features to some specific 
-applications and business use cases (ex. `indexed data`).
-
-There are already implemented core payloads, such as `SignedTransaction`, 
-`MilestonePayload` and `IndexationPayload` but the message and payload 
-definition is generic enough to incorporate any future payload(s) the community 
-agrees upon.
-
-Needless to say, IOTA network ensures the outer structure of message itself is 
-valid and definitely aligned with a network consensus protocol, however the 
-inner structure is very flexible, future-proof, and offer an unmatched network 
-extensibility.
-
-![messages_in_tangle](messages_in_tangle.svg)
-
-The current IOTA network incorporates the following core payloads:
-* `SignedTransaction`: payload that describes `UTXO` transactions that are 
-cornerstone of value-based transfers in IOTA network. Via this payload, 
-`message` can be also cryptographically signed
-* `MilestonePayload`: payload that is emitted by Coordinator
-* `IndexationPayload`: payload that enables addition of an index to the 
-encapsulating message, as well as some arbitrary data. The given index can be 
-later used to search the message(s)
-
-### Unspent Transaction Output (UTXO)
-
-IOTA uses `unspent transaction output` model, so called `UTXO`. It is based on 
-an idea to track unspent amount of tokens via data structure called `output`.
-
-Simplified analogy:
-* There is 100 tokens recorded in the ledger as `Output A` and this output 
-belongs to Alice. So **initial state of ledger**: `Output A` = 100 tokens
-* Alice sends 20 tokens to Paul, 30 tokens to Linda and keeps 50 tokens at 
-her disposal
-* Her 100 tokens are recorded as `Output A` and so she has to divide (spent) 
-tokens and create three new outputs:<br />`Output B` with 20 tokens that goes 
-to Paul, `Output C` with 30 tokens that goes to Linda and finally `Output D` 
-with the rest 50 tokens that she keep for herself
-* **Original `Output A`** was completely spent and can't be used any more. 
-It has been spent and so **becomes irrelevant** to ledger state
-* **New state of ledger**: `Output B` = 20 tokens, `Output C` = 30 tokens and 
-`Output D` = 50 tokens
-* Total supply remains the same. Just number of outputs differs and some outputs 
-were replaced by other outputs in the process
-
-![utxo](utxo.svg)
-
-The key takeaway of the outlined process is the fact that each unique `output` 
-can be spent **only once**. Once the given `output` is spent, can't be used any 
-more and is irrelevant in regards to the ledger state.
-
-So even if Alice still wants to keep remaining tokens at her fingertips, those 
-tokens have to be moved to completely new `output` that can be for instance 
-still tight to the same Alice's iota address as before.
-
-Every `output` stores also information about an IOTA address to which it is 
-coupled with. So addresses and tokens are indirectly coupled via `outputs`.
-So basically sum of outputs and their amounts under the given address is a 
-balance of the given address, ie. the number of tokens the given address can 
-spend. And sum of all unspent outputs and theirs amounts is equal to the total 
-supply.
-
-Before the chapter is wrapped up, one thing was left unexplained: _"how outputs 
-are being sent and broadcasted to network?"_ `Outputs` are being sent 
-encapsulated in a `message` as a part of `SignedTransaction` payload.
+Before we continue, make sure that you read the chapter about
+[messages and transactions in the IOTA protocol](../../protocol/messages.md).
 
 ## Outputs
 
@@ -746,24 +595,14 @@ the unspent amount is sent to the same address:
 ```javascript
 {{#include ../../../bindings/nodejs/examples/09_transaction.js}}
 ```
+> Note, that we send 1Mi in this example to comply with the [dust protection]
+> in the IOTA network.
 
 > We recommend to use official `wallet.rs` library together with `stronghold.rs` 
 > enclave for value-based transfers. This combination incorporates the best 
 > security practices while dealing with seeds, related addresses and `UTXO`. 
 > See more information on 
 > [Chrysalis docs](https://chrysalis.docs.iota.org/libraries/wallet.html).
-
-#### Dust protection
-
-Please note, there is also implemented a 
-[dust protection](https://chrysalis.docs.iota.org/guides/dev_guide.html#dust-protection) 
-mechanism in the network protocol to avoid malicious actors to spam network 
-in order to decrease node performance while keeping track of unspent 
-amount (`UTXO`):
-> "... microtransaction below 1Mi of IOTA tokens [can be sent] to another 
-> address if there is already at least 1Mi on that address"
-That's why we did send 1Mi in the given example to comply with the protection."
-
 
 ## Listening to MQTT
 
@@ -807,3 +646,5 @@ Please note: IOTA node has to have enabled MQTT layer. There is a set of test
 nodes available that have MQTT enabled. See 
 [testnet chapter](https://chrysalis.docs.iota.org/testnet.html) for more 
 information
+
+[dust protection]: ../../protocol/dust_protection.md
