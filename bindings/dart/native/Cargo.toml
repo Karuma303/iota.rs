@@ -1,0 +1,26 @@
+[workspace]
+
+[package]
+name = "iota_dart_client"
+version = "0.1.0"
+authors = ["Karuma <info@karuma.de>"]
+license = "Apache-2.0"
+edition = "2018"
+
+[lib]
+name = "iota_client"
+crate-type = ["cdylib"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+iota-client = { path = "../../../iota-client", features = ["mqtt"] }
+
+[build-dependencies]
+cbindgen = "0.19.0" # generates C header file
+dart-bindgen = "0.1"
+
+[profile.release]
+lto = true
+codegen-units = 1
+debug = false

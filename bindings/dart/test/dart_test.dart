@@ -1,12 +1,17 @@
-import 'package:flutter_test/flutter_test.dart';
-
-import 'package:dart/dart.dart';
+import 'package:iota_client/types/client.dart';
+import 'package:test/expect.dart';
+import 'package:test/scaffolding.dart';
 
 void main() {
-  test('adds one to input values', () {
-    final calculator = Calculator();
-    expect(calculator.addOne(2), 3);
-    expect(calculator.addOne(-7), -6);
-    expect(calculator.addOne(0), 1);
+  test('default client can be instantiated', () {
+    final Client c = Client.Builder().build();
+    expect(c, isNotNull);
+  });
+
+  test('advanced client can be instantiated', () {
+    final Client c = Client.Builder()
+        .localPow(true)
+        .build();
+    expect(c, isNotNull);
   });
 }
